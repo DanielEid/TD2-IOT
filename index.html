@@ -34,7 +34,7 @@
               <div class="col-lg-6">
                 <input id="ipValue" type="text" class="form-control" value="192.168.2.1">
               </div>
-              <button type="submit" class="btn" onclick="fetch_sendIp(document.getElementById('ipValue'))">Validez</button>
+              <button type="submit" class="btn" onclick="fetch_sendIp(document.getElementById('ipValue'),this)">Validez</button>
             </div>
           
 
@@ -48,28 +48,16 @@
          <div>
 
             <br>
-            <table class="table table-bordered">
-                  <thead>
+            <table class="table table-bordered" id="tableValeursPhotoRecepteur">
+              <button type ="button" id="b_action_led" class="btn" onclick="fetch_dataTemp(document.getElementById('tableValeursPhotoRecepteur'))">Obtenir temperature</button>
+               <thead>
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Temps</th>
                       <th scope="col">Valeur du photo-recepteur</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                    </tr>
-                    
-                    
-                  </tbody>
+                  <tbody></tbody>
                 </table>
          </div>
 
