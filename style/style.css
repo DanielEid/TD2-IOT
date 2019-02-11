@@ -6,24 +6,19 @@
 
 nav{
   background-color: #2b4776;
-  height: 50px;
   min-width: 600px;
-     
+  text-align: center;     
 }
-
 
 nav h1{
-  float: left;
+  margin: 0%!important;
+  padding: 5px;
   color: white;
-  margin-top: 10px;
-  margin-left: 2%;
-
-  font-size: 2em;
 }
-
 
 .menu {
   text-align:center;
+  vertical-align: middle;
   float: right;
 }
 /*placeholder*/
@@ -33,7 +28,7 @@ nav h1{
   text-align: center;
   max-width: 90%;
   margin: auto;
-  min-height: 320px;  
+  min-height: 250px;  
 }
 
 
@@ -77,6 +72,8 @@ nav h1{
   background-color: #cccccc;
   cursor: pointer;
   width: 50%;
+  margin: 3px!important;
+  
 
 }
 
@@ -87,6 +84,7 @@ table{
   max-width: 80%!important;
   margin: auto;
 }
+
 
 /*IP ESP 32*/
 

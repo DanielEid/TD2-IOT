@@ -14,7 +14,7 @@
 <body>
 
    <nav> 
-      <h1>TD2 IOT Daniel EID, Robin Prette</h1>
+      <h1>TD2 IOT - Daniel EID - Robin Prette</h1>
       <ul class='menu'>      
       </ul>
    </nav>
@@ -39,7 +39,6 @@
           
 
          
-<br>
 
          <div>     
                <button type ="button" id="b_action_led" class="btn" onclick="fetch_actionButtonLed(this)">LED</button>    
@@ -47,10 +46,11 @@
 
          <div>
 
-            <br>
-            <table class="table table-bordered" id="tableValeursPhotoRecepteur">
-              <button type ="button" id="b_action_led" class="btn" onclick="fetch_dataTemp(document.getElementById('tableValeursPhotoRecepteur'))">Obtenir temperature</button>
-               <thead>
+
+            <button type ="button" id="b_action_led" class="btn" onclick="fetch_dataTemp(document.getElementById('tableValeursPhotoRecepteur'))">Obtenir luminositée</button>
+
+            <table class="table table-bordered hidden" id="tableValeursPhotoRecepteur">
+              <thead>
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Temps</th>

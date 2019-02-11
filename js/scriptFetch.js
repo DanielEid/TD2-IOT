@@ -61,7 +61,8 @@ fetch('Controler/iotControler.php', {
 
 .then(function(response) {
   response.json().then(function(jsonData) { 
-    
+
+    console.log(element.classList.remove("hidden"));
     addTempDataTable(jsonData.temp,jsonData.time,element.id);
 
     //TODO controle d'erreur
