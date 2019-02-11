@@ -1,68 +1,78 @@
 <!DOCTYPE html>
-<html>
+
 <head>
-	<title></title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>TD2 IOT - Daniel EID - Robin Prette</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 
-	<link rel="stylesheet" type="text/css" href="style/style.css">
-	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+  <!--Style-->
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
 
+
+  <!--Scripts libs-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+  <!--Scripts-->
   <script src="js/scriptFetch.js" type="text/javascript"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
+  <script src="js/scriptGraph.js" type="text/javascript"></script>
+
 
 </head>
+
+<!--Body-->
+
 <body>
 
-   <nav> 
-      <h1>TD2 IOT - Daniel EID - Robin Prette</h1>
-      <ul class='menu'>      
-      </ul>
-   </nav>
+  <nav>
+    <h1>TD2 IOT - Daniel Eid - Robin Prette</h1>
+    <ul class='menu'>
+    </ul>
+  </nav>
 
-   <br>
-   <br>
+  <br>
+  <br>
 
-   <div class='placeholder'>
+  <div class='placeholder'>
 
-         <div class='barre'>
-            <h1>Controle ESP32<h1>
-         </div> 
-
-
-
-           <div class="form-row">
-              <div class="col-lg-6">
-                <input id="ipValue" type="text" class="form-control" value="192.168.2.1">
-              </div>
-              <button type="submit" class="btn" onclick="fetch_sendIp(document.getElementById('ipValue'),this)">Validez</button>
-            </div>
-          
-
-         
-
-         <div>     
-               <button type ="button" id="b_action_led" class="btn" onclick="fetch_actionButtonLed(this)">LED</button>    
-         </div>
-
-         <div>
-
-
-            <button type ="button" id="b_action_led" class="btn" onclick="fetch_dataTemp(document.getElementById('tableValeursPhotoRecepteur'))">Obtenir luminositée</button>
-
-            <table class="table table-bordered hidden" id="tableValeursPhotoRecepteur">
-              <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Temps</th>
-                      <th scope="col">Valeur du photo-recepteur</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-         </div>
-
+    <div class='barre'>
+      <h1>Controle ESP32<h1>
+    </div>
+    <!--Input et boutton pour set l'ip du esp32-->
+    <div class="form-row">
+      <div class="col-lg-6">
+        <input id="ipValue" type="text" class="form-control" value="192.168.2.1">
       </div>
+      <button type="submit" class="btn"
+        onclick="fetch_connection(document.getElementById('ipValue'),this)">Validez</button>
+    </div>
+
+    <!--Boutton pour changer l'état de la led-->
+    <div>
+      <button type="button" id="b_action_led" class="btn" onclick="fetch_actionButtonLed(this)">LED</button>
+    </div>
+
+    <!--Boutton qui permet de recuperer les données du photo recepteur et les affichent dans un graph et tableau -->
+    <div>
+      <button type="button" id="b_action_led" class="btn"
+        onclick="fetch_dataTemp(document.getElementById('tableValeursPhotoRecepteur'))">Obtenir luminositée</button>
+
+      <div id="containerGraph"></div>
+
+      <table class="table table-bordered hidden" id="tableValeursPhotoRecepteur">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Temps</th>
+            <th scope="col">Valeur du photo-recepteur</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </div>
 
 </body>
-</html>
 
+
+</html>

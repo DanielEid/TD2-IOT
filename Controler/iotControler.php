@@ -1,24 +1,20 @@
 <?php
 
-//session_start();
-
-
 
 //Fonctions
 
 
 function changeLedState($stateLed){
-	if($stateLed)
-		echo "on"; //TODO
+	/*if($stateLed)
+		echo "true"; //TODO
 	else if(!$stateLed)
-		echo "off";	//TODO
+		echo "false";	//TODO*/
+		echo $stateLed;  //indique l'état de la led
 }
 
 function esp32Connection($ip){
 	return true; //TODO
 }
-
-
 
 function getBDDData(){
 	//TODO
@@ -48,7 +44,7 @@ function getPhotoReceptorValues(){
 //Script
 
 
-		switch ($method) {
+		switch ($method) {  //Récupere la valeur passée en post depuis le javascript, permet de savoir quel méthode utiliser pour quelle fonctionalitée.
 
 			case 1:
 				if(esp32Connection($ip))
@@ -58,7 +54,7 @@ function getPhotoReceptorValues(){
 			break;	
 
 			case 2:		
-				changeLedState(true);
+				changeLedState(false);
 			break;
 
 			case 3:
