@@ -34,16 +34,15 @@ nav h1{
 
 
 .barre{
+  margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #cccccc;
- 
   display: flow-root;
-  text-align: center
+  text-align: center;
+
+  color: white;
+  background-color: #2b4776;  
 }
 
-.barre h1 {
-    font-weight: 500;
-}
 
 .barre h1{
   font-size: 1.5em; 

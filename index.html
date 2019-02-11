@@ -24,13 +24,10 @@
 <body>
 
   <nav>
-    <h1>TD2 IOT - Daniel Eid - Robin Prette</h1>
+    <h1>IOT ESP32 - Daniel Eid - Robin Prette</h1>
     <ul class='menu'>
     </ul>
   </nav>
-
-  <br>
-  <br>
 
   <div class='placeholder'>
 
@@ -52,11 +49,17 @@
     </div>
 
     <!--Boutton qui permet de recuperer les données du photo recepteur et les affichent dans un graph et tableau -->
+
+    <div class='barre'>
+      <h1>Luminositée<h1>
+    </div>
     <div>
       <button type="button" id="b_action_led" class="btn"
         onclick="fetch_dataTemp(document.getElementById('tableValeursPhotoRecepteur'))">Obtenir luminositée</button>
 
-      <div id="containerGraph"></div>
+      <div id="containerGraph">
+        
+      </div>
 
       <table class="table table-bordered hidden" id="tableValeursPhotoRecepteur">
         <thead>
@@ -68,6 +71,10 @@
         </thead>
         <tbody></tbody>
       </table>
+    </div>
+
+    <div class='barre'>
+      <h1>Temperature<h1>
     </div>
 
   </div>
