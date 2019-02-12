@@ -78,6 +78,7 @@ function selectEcho($bdd,$param,$table,$nbrOfRows){ //adaptée seulement a cette
 
 /*MAIN*/
 
+//TODO
 $bdd=initialiseDatabase('sqlite:ESP32.db');
 print_r($bdd);
 insert($bdd,'temperature','temperature','666');
