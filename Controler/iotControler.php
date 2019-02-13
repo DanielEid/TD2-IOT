@@ -1,6 +1,4 @@
 <?php
-
-
 //Fonctions
 
 
@@ -16,28 +14,22 @@ function esp32Connection($ip){
 	return true; //TODO
 }
 
-function getBDDData(){
-	//TODO
-	return array("temp" => array(5,45,6,9),"time" => array("18.02:13","18.02:14","18.02:15","18.02:16"));
-
-}
 
 function getPhotoReceptorValues(){
-	return json_encode(getBDDData());
+	return json_encode(selectJson($GLOBALS['bdd'],'luminosite','luminosite',10));	
 } 
 
 
-//Variables	
-	
-///////TMP TEST////////
-//$_POST['method']=3;
-//////////////
+	require_once '../Model/databaseModel.php';
 
 	if (isset($_POST['ip']))
 		$ip=$_POST['ip'];
 
 	if (isset($_POST['method'])){
 		$method=$_POST['method']; 
+
+	if(empty($GLOBALS['bdd']))
+		$GLOBALS['bdd']=initialiseDatabase('sqlite:ESP32.db');
 
 	
 

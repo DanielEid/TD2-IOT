@@ -2,6 +2,8 @@
 
 function initialiseDatabase($addresseBDD){
 
+    $addresseBDD='sqlite:../Model/ESP32.db';
+
     date_default_timezone_set('UTC');
 
     try {  //to obtains errors
@@ -15,27 +17,19 @@ function initialiseDatabase($addresseBDD){
     $bdd->exec("CREATE TABLE IF NOT EXISTS luminosite (
         id INTEGER PRIMARY KEY, 
         luminosite INTEGER, 
-        'time' INTEGER NOT NULL DEFAULT CURRENT_TIME)");   
+        'time' INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP)");   
 
     $bdd->exec("CREATE TABLE IF NOT EXISTS temperature (
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
         temperature INTEGER, 
-        'time' INTEGER NOT NULL DEFAULT CURRENT_TIME)");
+        'time' INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP)");
 
 
 
         return $bdd;
-
-
-    //DROP and FILL DB exemple
-     // Drop table messages from file db
-    //$bdd->exec("DROP TABLE messages");
-    // Close file db connection
-    // $file_db = null;
     }
 
 catch(PDOException $e) {
-    // Print PDOException message
     echo $e->getMessage();
   }
 
@@ -51,49 +45,23 @@ function insert($bdd,$tableName,$nameColumn,$value){
     catch(PDOException $e) {
         echo $e->getMessage();
       }
-
-    //$sqlInsert=$bdd->prepare('INSERT INTO "luminosite" ("id","luminosite") VALUES (:id,:luminosite)');
-    // $sqlInsert->bindValue(':id',NULL);
-    // $sqlInsert->bindValue/*bindParam*/(':luminosite',30);
-    // $sqlInsert->execute();
 }
 
 function selectEcho($bdd,$param,$table,$nbrOfRows){ //adaptée seulement a cette application
 
-    $resultsql = $bdd->query('SELECT '.$param.',time FROM "'.$table.'" ORDER BY "time" DESC LIMIT 0, '.$nbrOfRows.'');
+    $resultsql = $bdd->query('SELECT '.$param.',time FROM "'.$table.'" ORDER BY "id" DESC LIMIT 0, '.$nbrOfRows.'');
     
     foreach($resultsql as $row) {
       echo $param.": " . $row[$param] . "<br>";
       echo "time: " . $row['time'] . "<br>";
       echo "<br><br>";
     }
-
-    /*$resultsql = $bdd->query('SELECT temperature,time FROM "temperature" ORDER BY "time" DESC LIMIT 0, 10');    
-    foreach($resultsql as $row) {
-      echo "temperature: " . $row['temperature'] . "\n";
-      echo "time: " . $row['time'] . "\n";
-      echo "<br><br>";*/
 }
 
+function selectJson($bdd,$param,$table,$nbrOfRows){ //adaptée seulement a cette application
 
-/*MAIN*/
-
-//TODO
-$bdd=initialiseDatabase('sqlite:ESP32.db');
-print_r($bdd);
-insert($bdd,'temperature','temperature','666');
-selectEcho($bdd,'temperature','temperature',10);
-
-
-
-
-
-
-
-
-
-
-
-
+  return  $bdd->query('SELECT '.$param.',time FROM "'.$table.'" ORDER BY "id" DESC LIMIT 0, '.$nbrOfRows.'')->fetchAll(PDO::FETCH_ASSOC);
+  //retourne le resultat de l'instruction SQL sous forme de tableau
+  }
 
 ?>

@@ -1,6 +1,5 @@
-function initialiseGraph(dataTime,dataTemp){
+function initialiseGraph(dataX,dataY){
 
-console.log(dataTemp);
 
 //Perso: permet de supprimer le graph et de le refaire (pour l'update des données)
   var container=document.querySelector("#containerGraph");
@@ -14,13 +13,13 @@ console.log(dataTemp);
   option = {
       xAxis: {
           type: 'category',
-          data:dataTime
+          data:dataX
         },
       yAxis: {
           type: 'value'
       },
       series: [{
-          data: dataTemp,
+          data: dataY,
           type: 'line'
       }]
   };

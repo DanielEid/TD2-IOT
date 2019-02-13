@@ -43,7 +43,7 @@ function fetch_actionButtonLed(element) {
 
 }
 
-function fetch_dataTemp(element) {
+function fetch_dataLum(element) {
 
   fetch('Controler/iotControler.php', {
     method: 'POST',
@@ -56,15 +56,20 @@ function fetch_dataTemp(element) {
 
     .then(function (response) {
       response.json().then(function (jsonData) {
+        /* *Initialise le graph de temperature en utilisant les fonctions fournis dans la template , 
+          * Et j'envoie deux tableaux avec les données qui seront affichées, les tableaux temporaires 
+          * sont nécésaires pour le bon fonctionement de l'affichage du tableau du aux fonctions
+          * de la template du tableau
+        * */
+        var lumArray = [];
+        var timeArray = [];
 
-        //Initialise le graph de temperature en utilisant les fonctions fournis dans la template , on lui envoi juste nos données recupéreé de l'esp
-        initialiseGraph(jsonData.time, jsonData.temp);
+        jsonData.forEach(element => {
+          lumArray.push(element.luminosite);
+          timeArray.push(element.time);
+        });
 
-        //Comme notre retour est du json avec deux tables alors j'envoie ces deux tables dans ma fonction qui ajoute le tableau
-        //addTempDataTable(jsonData.temp,jsonData.time,element.id);
-
-        //TODO controle d'erreur
-
+        initialiseGraph(timeArray, lumArray);  //j'appele la création du graph
       });
     });
 
