@@ -51,8 +51,9 @@ function fetch_dataLum(element) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     credentials: 'include',
     body: "method=" + 3
-
+    
   })
+  
 
     .then(function (response) {
       response.json().then(function (jsonData) {
@@ -69,7 +70,7 @@ function fetch_dataLum(element) {
           timeArray.push(element.time);
         });
 
-        initialiseGraph(timeArray, lumArray);  //j'appele la création du graph
+        initialiseGraph(element.id,timeArray, lumArray);  //j'appele la création du graph
       });
     });
 
@@ -95,7 +96,7 @@ function addTempDataTable(dataTemp, dataTime, idTable) {  //ajoute des données 
 
   else {
     //Retirer la classe caché du tableau de valeur dans l'interface
-    console.log(table.classList.remove("hidden"));
+    table.classList.remove("hidden");
 
     let tableTbody = table.getElementsByTagName("TBODY")[0];
 

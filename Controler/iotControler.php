@@ -24,9 +24,12 @@ function getPhotoReceptorValues(){
 
 	if (isset($_POST['ip']))
 		$ip=$_POST['ip'];
-
+	
 	if (isset($_POST['method'])){
 		$method=$_POST['method']; 
+
+	if (isset($_POST['actionButtonId']))
+		$id=$_POST['actionButtonId'];
 
 	if(empty($GLOBALS['bdd']))
 		$GLOBALS['bdd']=initialiseDatabase('sqlite:ESP32.db');
