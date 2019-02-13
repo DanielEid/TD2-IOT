@@ -43,17 +43,15 @@ function fetch_actionButtonLed(element) {
 
 }
 
-function fetch_dataLum(element) {
+function fetch_dataSensors(element,method) {
 
   fetch('Controler/iotControler.php', {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     credentials: 'include',
-    body: "method=" + 3
-    
-  })
-  
+    body: "method=" + method    
+  }) 
 
     .then(function (response) {
       response.json().then(function (jsonData) {
@@ -62,15 +60,15 @@ function fetch_dataLum(element) {
           * sont nécésaires pour le bon fonctionement de l'affichage du tableau du aux fonctions
           * de la template du tableau
         * */
-        var lumArray = [];
+        var dataArray = [];
         var timeArray = [];
 
-        jsonData.forEach(element => {
-          lumArray.push(element.luminosite);
+        jsonData.forEach(element => {        
+          dataArray.push(element[Object.keys(element)[0]]);  //Permet d'acceder au premier élement sans connaitre le nom de sa key car deux type de data utilisent la même fonction
           timeArray.push(element.time);
         });
 
-        initialiseGraph(element.id,timeArray, lumArray);  //j'appele la création du graph
+        initialiseGraph(element.id,timeArray, dataArray);  //j'appele la création du graph
       });
     });
 

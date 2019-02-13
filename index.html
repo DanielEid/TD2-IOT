@@ -53,18 +53,21 @@
     <div class='barre'>
       <h1>Luminositée<h1>
     </div>
+
     <div>
-      <button type="button" id="b_action_led" class="btn"
-        onclick="fetch_dataLum(document.getElementById('containerGraphLum'))">Obtenir luminositée</button>
-
-      <div id="containerGraphLum">
-        
-      </div>
-
+      <button type="button" class="btn"
+        onclick="fetch_dataSensors(document.getElementById('containerGraphLum'),3)">Obtenir luminositée</button>
+      <div id="containerGraphLum"></div>
     </div>
 
     <div class='barre'>
       <h1>Temperature<h1>
+    </div>
+
+    <div>
+      <button type="button" class="btn"
+        onclick="fetch_dataSensors(document.getElementById('containerGraphTemp'),4)">Obtenir Temperature</button>
+      <div id="containerGraphTemp"></div>
     </div>
 
   </div>

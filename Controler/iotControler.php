@@ -15,10 +15,13 @@ function esp32Connection($ip){
 }
 
 
-function getPhotoReceptorValues(){
-	return json_encode(selectJson($GLOBALS['bdd'],'luminosite','luminosite',10));	
+function getBrightnessValuesJsonFromBdd(){
+	return json_encode(selectJson($GLOBALS['bdd'],'luminosite','luminosite',10));	//la BDD,La table,La colone,nbr d'element renvoyées
 } 
 
+function getTemperatureValuesJsonFromBdd(){
+	return json_encode(selectJson($GLOBALS['bdd'],'temperature','temperature',10));	
+} 
 
 	require_once '../Model/databaseModel.php';
 
@@ -53,7 +56,11 @@ function getPhotoReceptorValues(){
 			break;
 
 			case 3:
-			  echo getPhotoReceptorValues();
+			  echo getBrightnessValuesJsonFromBdd();
+			break;
+
+			case 4:
+			  echo getTemperatureValuesJsonFromBdd();
 			break;
 
 			default:
