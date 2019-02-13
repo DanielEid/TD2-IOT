@@ -1,5 +1,5 @@
 
-function fetch_connection(element, elementButton) {
+function fetch_connection(element, elementButton) { //TODO quand ESP32 ok
 
   fetch('Controler/iotControler.php', {
     method: 'POST',
@@ -23,7 +23,7 @@ function fetch_connection(element, elementButton) {
 
 }
 
-function fetch_actionButtonLed(element) {
+function fetch_actionButtonLed(element) {  //TODO
 
   fetch('Controler/iotControler.php', {
     method: 'POST',
@@ -43,7 +43,7 @@ function fetch_actionButtonLed(element) {
 
 }
 
-function fetch_dataSensors(element,method) {
+function fetch_dataSensors(element,method) { //TODO if pas de donnée  + controle erreur
 
   fetch('Controler/iotControler.php', {
     method: 'POST',
@@ -86,7 +86,7 @@ function buttonColor(button, bool) {
   }
 }
 
-function addTempDataTable(dataTemp, dataTime, idTable) {  //ajoute des données au tableau de valeur du photorecepteur
+function addTempDataTable(dataTemp, dataTime, idTable) {  //ajoute des données au tableau de valeur du photorecepteur //Inutilisé
 
   let table = document.querySelector("#" + idTable);
   if (!table)

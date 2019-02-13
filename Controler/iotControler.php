@@ -1,6 +1,6 @@
 <?php
-//Fonctions
 
+//Fonctions
 
 function changeLedState($stateLed){
 	/*if($stateLed)
@@ -23,6 +23,7 @@ function getTemperatureValuesJsonFromBdd(){
 	return json_encode(selectJson($GLOBALS['bdd'],'temperature','temperature',10));	
 } 
 
+//INITIALISATION
 	require_once '../Model/databaseModel.php';
 
 	if (isset($_POST['ip']))
@@ -39,7 +40,7 @@ function getTemperatureValuesJsonFromBdd(){
 
 	
 
-//Script
+//SCRIPT
 
 
 		switch ($method) {  //Récupere la valeur passée en post depuis le javascript, permet de savoir quel méthode utiliser pour quelle fonctionalitée.
